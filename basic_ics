@@ -1,0 +1,38 @@
+from ics import Calendar, Event
+from datetime import datetime
+
+# Event details
+event_title = "Financial Market Research Discussion"
+event_date = datetime(year=2024, month=6, day=25, hour=10, minute=0)  # Adjust date and time accordingly
+event_duration_hours = 1
+event_location = "Virtual Meeting Platform"
+
+# Attendees
+attendees = [
+    {"name": "Joyce", "location": "Australia"},
+    {"name": "Keith Ray", "location": "Dubai"},
+    {"name": "Ali Ziwa", "location": "USA"},
+    {"name": "Stevo", "location": "Egypt"},
+    {"name": "Michael Jordan", "location": "USA"}
+]
+
+# Create calendar
+cal = Calendar()
+
+# Create event
+event = Event()
+event.name = event_title
+event.begin = event_date
+event.duration = {"hours": event_duration_hours}
+event.location = event_location
+
+# Add attendees
+for attendee in attendees:
+    event.add_attendee(f"{attendee['name']} - {attendee['location']}")
+
+# Add event to calendar
+cal.events.add(event)
+
+# Save calendar to file
+with open('financial_market_research.ics', 'w') as f:
+    f.write(str(cal))
