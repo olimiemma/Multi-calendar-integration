@@ -1,0 +1,29 @@
+from googleapiclient.discovery import build
+
+# Replace with your credentials
+credentials = # Your authentication credentials
+
+service = build('calendar', 'v3', credentials=credentials)
+
+# Event details
+event = {
+    'summary': 'Market Research: Financial Courses & Materials',
+    'location': '',  # Optional, add location if needed
+    'description': '''This meeting will focus on market research...''',  # Add full description here
+    'start': {
+        'dateTime': '2024-06-24T09:00:00-07:00',  # Adjust time as needed (replace with desired time in your timezone)
+    },
+    'end': {
+        'dateTime': '2024-06-24T10:00:00-07:00',  # Adjust end time as needed
+    },
+    'attendees': [
+        {'email': 'joyce.australia@example.com'},  # Replace with Joyce's email
+        {'email': 'keith.ray@dubai.example.com'},  # Replace with Keith Ray's email
+        # Add emails for Ali Ziwa, Stevo, and Michael Jordan
+    ],
+}
+
+# Insert event
+event = service.events().insert(calendarId='primary', body=event).execute()
+
+print('Event created: %s' % (event.get('htmlLink')))
