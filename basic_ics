@@ -36,3 +36,15 @@ cal.events.add(event)
 # Save calendar to file
 with open('financial_market_research.ics', 'w') as f:
     f.write(str(cal))
+""""
+import datetime
+
+# Set the desired date and time for your event
+event_date = datetime.datetime(2024, 6, 24, 13, 30)  # Monday at 1:30 PM
+
+# Create a calendar event
+event_description = "Connect with people from different countries"
+print(f"Event scheduled for: {event_date.strftime('%A, %B %d, %Y at %I:%M %p')}")
+print(f"Event description: {event_description}")
+#Replace the event_description with the specific purpose of your meeting. Remember to adjust the date and time according to your timezone.
+""""
